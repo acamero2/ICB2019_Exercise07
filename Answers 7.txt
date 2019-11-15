@@ -1,0 +1,38 @@
+1. Write a function that returns the odd (1, 3, 5, etc.) rows of any dataframe passed as an argument.
+
+> oddrows <- function(x){
+>   row_numbers <- seq(1, nrow(x), 2)
+>   return (x[c(row_numbers),])}
+
+#Usage: > oddrows(iris)
+
+
+2.  Repeat a subset of last week’s exercise, but write functions to accomplish these tasks.
+
+Return the number of observations for a given species included in the data set.
+
+> Obs_no <- function(x){
+> 	x <- as.character(x)
+> 	Obs <- sum(iris$Species==x)
+> 	return (print(Obs))}
+
+#Usage: > Obs_no("virginica")
+
+
+Return a dataframe for ﬂowers with Sepal.Width greater than a value speciﬁed by the function user.
+
+> sep.wid.greater <- function(x){
+>   return(iris[(which(iris$Sepal.Width>x)),])}
+
+#Usage: > sep.wid.greater (3.5)
+
+
+Write the data for a given species to a comma-delimited ﬁle with the given species name as the ﬁle name; Hint: look at paste() to add the .csv extension to your ﬁle in the for-loop.
+
+> write.species.csv <- function(x){
+>   file_name = paste (x, ".csv", sep="")
+>   write.csv((iris[(which(iris$Species==x)),]), file = file_name)
+>   output_message <- paste(file_name, "created in working directory.")
+>   return(output_message)}
+
+#Usage: > write.species.csv("setosa")
